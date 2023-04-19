@@ -9,6 +9,8 @@
             "type": "object",
             "properties": {
                 "extra": {
+                    "description": "Contains additional information related towards the file's openness and reproducibility.",
+                    "type": "object",
                     "properties": {
                         "name": {
                             "description": "The name or reference code associated with the project file.",
