@@ -1,0 +1,66 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://schema.ashwork.net/project_patcher/project_metadata_file.schema.json",
+    "title": "Project Patcher: Project Metadata File",
+    "description": "The metadata of a project file for constructing a project with Project Patcher.",
+    "type": "object",
+    "properties": {
+        "type": {
+            "description": "The type of the project file.",
+            "enum": [ "osf", "url", "git" ]
+        },
+        "dir": {
+            "description": "The directory relative to the working directory that the project files should be placed within. If none is specified, it defaults to the working directory.",
+            "type": "string",
+            "$comment": "TODO: Add validation for relative directory"
+        }
+    },
+    "required": [ "type" ],
+    "allOf": [
+        {
+            "if": { "properties": { "type": { "const": "osf" } } },
+            "then": {
+                "properties": {
+                    "id": {
+                        "description": "A five alphanumeric character string representing an OSF project.",
+                        "type": "string",
+                        "pattern": "^[A-Za-z0-9]{5}$"
+                    }
+                },
+                "required": [ "id" ]
+            }
+        },
+        {
+            "if": { "properties": { "type": { "const": "url" } } },
+            "then": {
+                "properties": {
+                    "url": {
+                        "description": "A URL containing the file to query via a HTTP GET request.",
+                        "type": "string",
+                        "$comment": "TODO: Add validation for url"
+                    }
+                },
+                "required": [ "url" ]
+            }
+        },
+        {
+            "if": { "properties": { "type": { "const": "git" } } },
+            "then": {
+                "properties": {
+                    "repository": {
+                        "description": "An identifier representing the location of a git repository.",
+                        "type": "string",
+                        "$comment": "TODO: Add validation for git"
+                    }
+                },
+                "patternProperties": {
+                    "^(branch)|(tag)|(commit)$": {
+                        "description": "The location to checkout the repository to. If none is specified, the default branch will be used.",
+                        "type": "string"
+                    }
+                },
+                "required": [ "repository" ]
+            }
+        }
+    ]
+}
