@@ -9,6 +9,7 @@
     "type": "object",
     "properties": {
         "files": {
+            "description": "A list of files associated with this project.",
             "type": "array",
             "items": {
                 "$ref": "/project_patcher/project_metadata_file"
@@ -16,6 +17,7 @@
             "minItems": 1
         },
         "ignore": {
+            "description": "A list of file patterns to ignore instead of patch when there are differences between the files.",
             "type": "array",
             "items": {
                 "type": "string"
@@ -23,6 +25,7 @@
             "minItems": 1
         },
         "overwrite": {
+            "description": "A list of file patterns to overwrite instead of patch when there are differences between the files.",
             "type": "array",
             "items": {
                 "type": "string"
