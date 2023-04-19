@@ -1,0 +1,34 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://schema.ashwork.net/project_patcher/project_metadata",
+    "title": "Project Patcher: Project Metadata",
+    "description": "The metadata needed to construct a project using Project Patcher.",
+    
+    "$comment": "TODO: Merge 'ignore' and 'overwrite' into same type for data",
+    
+    "type": "object",
+    "properties": {
+        "files": {
+            "type": "array",
+            "items": {
+                "$ref": "/project_patcher/project_metadata_file"
+            },
+            "minItems": 1
+        },
+        "ignore": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1
+        },
+        "overwrite": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1
+        }
+    },
+    "required": [ "files" ]
+}
