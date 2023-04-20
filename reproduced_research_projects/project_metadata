@@ -94,6 +94,7 @@
                             "patternProperties": {
                                 "^.+$": {
                                     "description": "A URL associated with the project.",
+                                    "$comment": "TODO: Add validation for url",
                                     "type": "object",
                                     "properties": {
                                         "name": {
