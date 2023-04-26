@@ -1,0 +1,35 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://schema.ashwork.net/reproduced_research_projects/project_metadata_file",
+    "title": "Reproduced Research Projects: Project Metadata File (Extension)",
+    "description": "An extension of Project Patcher's project file containing additional information towards openness and reproducibility.",
+    "allOf": [
+        { "$ref": "/project_patcher/project_metadata_file" },
+        {
+            "type": "object",
+            "properties": {
+                "extra": {
+                    "description": "Contains additional information related towards the file's openness and reproducibility.",
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "description": "The name or reference code associated with the project file.",
+                            "type": "string"
+                        },
+                        "link": {
+                            "description": "A URL to the project file, if available.",
+                            "type": "string",
+                            "$comment": "TODO: Add validation for url"
+                        },
+                        "license": {
+                            "description": "The license the project file is under. If no license is specified, it will default to ARR (All Rights Reserved).",
+                            "type": "string"
+                        }
+                    },
+                    "required": [ "name" ]
+                }
+            },
+            "required": [ "extra" ]
+        }
+    ]
+}

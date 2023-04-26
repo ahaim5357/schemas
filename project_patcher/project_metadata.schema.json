@@ -1,0 +1,40 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://schema.ashwork.net/project_patcher/project_metadata",
+    "title": "Project Patcher: Project Metadata",
+    "description": "The metadata needed to construct a project using Project Patcher.",
+    
+    "type": "object",
+    "properties": {
+        "files": {
+            "description": "A list of files associated with this project.",
+            "type": "array",
+            "items": {
+                "$ref": "/project_patcher/project_metadata_file"
+            },
+            "minItems": 1
+        },
+        "ignore": {
+            "description": "A list of file patterns to ignore instead of patch when there are differences between the files.",
+            "$ref": "#/$defs/file_patterns"
+        },
+        "overwrite": {
+            "description": "A list of file patterns to overwrite instead of patch when there are differences between the files.",
+            "$ref": "#/$defs/file_patterns"
+        }
+    },
+    "required": [ "files" ],
+
+    "$defs": {
+        "file_pattern": {
+            "type": "string"
+        },
+        "file_patterns": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/file_pattern"
+            },
+            "minItems": 1
+        }
+    }
+}
