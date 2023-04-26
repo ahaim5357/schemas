@@ -1,17 +1,17 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://schema.ashwork.net/reproduced_research_projects/project_metadata",
+    "$id": "https://schema.ashwork.net/reproduced_research_projects/project_metadata.schema.json",
     "title": "Reproduced Research Projects: Project Metadata (Extension)",
     "description": "An extension of Project Patcher's project metadata containing additional information towards openness and reproducibility.",
     "allOf": [
-        { "$ref": "/project_patcher/project_metadata" },
+        { "$ref": "/project_patcher/project_metadata.schema.json" },
         {
             "type": "object",
             "properties": {
                 "files": {
                     "type": "array",
                     "items": {
-                        "$ref": "/reproduced_research_projects/project_metadata_file"
+                        "$ref": "/reproduced_research_projects/project_metadata_file.schema.json"
                     },
                     "minItems": 1
                 }

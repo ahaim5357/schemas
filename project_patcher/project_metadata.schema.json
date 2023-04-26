@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://schema.ashwork.net/project_patcher/project_metadata",
+    "$id": "https://schema.ashwork.net/project_patcher/project_metadata.schema.json",
     "title": "Project Patcher: Project Metadata",
     "description": "The metadata needed to construct a project using Project Patcher.",
     
@@ -10,7 +10,7 @@
             "description": "A list of files associated with this project.",
             "type": "array",
             "items": {
-                "$ref": "/project_patcher/project_metadata_file"
+                "$ref": "/project_patcher/project_metadata_file.schema.json"
             },
             "minItems": 1
         },

@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://schema.ashwork.net/reproduced_research_projects/extra_definitions",
+    "$id": "https://schema.ashwork.net/reproduced_research_projects/extra_definitions.schema.json",
     "title": "Reproduced Research Projects: Extra Definitions",
     "description": "Additional metadata associated with a particular key.",
     "type": "object",
